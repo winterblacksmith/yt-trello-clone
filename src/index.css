@@ -44,6 +44,18 @@ All colors MUST be HSL.
     --column-bg: 210 25% 97%;
     --column-border: 220 13% 91%;
     
+    /* Column-specific colors */
+    --column-scriptwriting: 48 100% 95%;
+    --column-scriptwriting-border: 48 100% 85%;
+    --column-filming: 210 100% 95%;
+    --column-filming-border: 210 100% 85%;
+    --column-editing: 270 100% 95%;
+    --column-editing-border: 270 100% 85%;
+    --column-thumbnail: 30 100% 95%;
+    --column-thumbnail-border: 30 100% 85%;
+    --column-published: 90 100% 95%;
+    --column-published-border: 90 100% 85%;
+    
     --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
     
@@ -104,6 +116,18 @@ All colors MUST be HSL.
     --column-bg: 215 25% 12%;
     --column-border: 215 25% 20%;
     
+    /* Column-specific colors for dark mode */
+    --column-scriptwriting: 48 60% 12%;
+    --column-scriptwriting-border: 48 60% 20%;
+    --column-filming: 210 60% 12%;
+    --column-filming-border: 210 60% 20%;
+    --column-editing: 270 60% 12%;
+    --column-editing-border: 270 60% 20%;
+    --column-thumbnail: 30 60% 12%;
+    --column-thumbnail-border: 30 60% 20%;
+    --column-published: 90 60% 12%;
+    --column-published-border: 90 60% 20%;
+    
     --card-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.3), 0 1px 2px -1px rgb(0 0 0 / 0.3);
     --card-shadow-hover: 0 4px 6px -1px rgb(0 0 0 / 0.3), 0 2px 4px -2px rgb(0 0 0 / 0.3);
   }
@@ -121,7 +145,32 @@ All colors MUST be HSL.
 
 @layer utilities {
   .kanban-column {
-    @apply bg-[hsl(var(--column-bg))] border border-[hsl(var(--column-border))] rounded-lg;
+    @apply border rounded-lg;
+  }
+  
+  .kanban-column-scriptwriting {
+    background-color: hsl(var(--column-scriptwriting));
+    border-color: hsl(var(--column-scriptwriting-border));
+  }
+  
+  .kanban-column-filming {
+    background-color: hsl(var(--column-filming));
+    border-color: hsl(var(--column-filming-border));
+  }
+  
+  .kanban-column-editing {
+    background-color: hsl(var(--column-editing));
+    border-color: hsl(var(--column-editing-border));
+  }
+  
+  .kanban-column-thumbnail {
+    background-color: hsl(var(--column-thumbnail));
+    border-color: hsl(var(--column-thumbnail-border));
+  }
+  
+  .kanban-column-published {
+    background-color: hsl(var(--column-published));
+    border-color: hsl(var(--column-published-border));
   }
   
   .kanban-card {

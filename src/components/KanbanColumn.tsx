@@ -30,8 +30,14 @@ export function KanbanColumn({
     id,
   });
 
+  const getColumnClass = () => {
+    const baseClass = "kanban-column p-4 min-h-96 w-72 flex-shrink-0";
+    const colorClass = `kanban-column-${id}`;
+    return `${baseClass} ${colorClass}`;
+  };
+
   return (
-    <div className="kanban-column p-4 min-h-96 w-72 flex-shrink-0">
+    <div className={getColumnClass()}>
       <div className="column-header flex items-center justify-between">
         <h3>{title}</h3>
         <span className="text-xs bg-muted px-2 py-1 rounded-full">
