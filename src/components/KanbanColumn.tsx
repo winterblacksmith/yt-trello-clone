@@ -30,14 +30,28 @@ export function KanbanColumn({
     id,
   });
 
-  const getColumnClass = () => {
-    const baseClass = "kanban-column p-4 min-h-96 w-72 flex-shrink-0";
-    const colorClass = `kanban-column-${id}`;
-    return `${baseClass} ${colorClass}`;
+  const getColumnStyle = () => {
+    const colorMap: Record<string, { bg: string; border: string }> = {
+      scriptwriting: { bg: "hsl(48 100% 95%)", border: "hsl(48 100% 85%)" },
+      filming: { bg: "hsl(210 100% 95%)", border: "hsl(210 100% 85%)" },
+      editing: { bg: "hsl(270 100% 95%)", border: "hsl(270 100% 85%)" },
+      thumbnail: { bg: "hsl(30 100% 95%)", border: "hsl(30 100% 85%)" },
+      published: { bg: "hsl(90 100% 95%)", border: "hsl(90 100% 85%)" },
+    };
+
+    const colors = colorMap[id] || { bg: "hsl(210 25% 97%)", border: "hsl(220 13% 91%)" };
+    
+    return {
+      backgroundColor: colors.bg,
+      borderColor: colors.border,
+    };
   };
 
   return (
-    <div className={getColumnClass()}>
+    <div 
+      className="border rounded-lg p-4 min-h-96 w-72 flex-shrink-0"
+      style={getColumnStyle()}
+    >
       <div className="column-header flex items-center justify-between">
         <h3>{title}</h3>
         <span className="text-xs bg-muted px-2 py-1 rounded-full">
