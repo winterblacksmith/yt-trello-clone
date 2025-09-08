@@ -57,6 +57,11 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        youtube: {
+          red: "hsl(var(--youtube-red))",
+          "red-hover": "hsl(var(--youtube-red-hover))",
+          "red-light": "hsl(var(--youtube-red-light))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
