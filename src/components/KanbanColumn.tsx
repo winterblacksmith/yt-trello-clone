@@ -32,6 +32,7 @@ export function KanbanColumn({
 
   const getColumnStyle = () => {
     const colorMap: Record<string, { bg: string; border: string }> = {
+      ideation: { bg: "hsl(0 100% 95%)", border: "hsl(0 100% 85%)" },
       scriptwriting: { bg: "hsl(48 100% 95%)", border: "hsl(48 100% 85%)" },
       filming: { bg: "hsl(210 100% 95%)", border: "hsl(210 100% 85%)" },
       editing: { bg: "hsl(270 100% 95%)", border: "hsl(270 100% 85%)" },

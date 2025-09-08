@@ -20,6 +20,7 @@ interface VideoItem {
 }
 
 const COLUMNS = [
+  { id: "ideation", title: "Ideation" },
   { id: "scriptwriting", title: "Scriptwriting" },
   { id: "filming", title: "Filming" },
   { id: "editing", title: "Editing" },
@@ -28,11 +29,13 @@ const COLUMNS = [
 ];
 
 const INITIAL_VIDEOS: VideoItem[] = [
-  { id: "1", title: "React Best Practices 2024", status: "scriptwriting" },
-  { id: "2", title: "Next.js 15 New Features", status: "filming" },
-  { id: "3", title: "TypeScript Tips & Tricks", status: "editing" },
-  { id: "4", title: "CSS Grid vs Flexbox", status: "thumbnail" },
-  { id: "5", title: "JavaScript ES2024 Features", status: "published" },
+  { id: "1", title: "AI Development Tools Review", status: "ideation" },
+  { id: "2", title: "React Best Practices 2024", status: "scriptwriting" },
+  { id: "3", title: "Next.js 15 New Features", status: "filming" },
+  { id: "4", title: "TypeScript Tips & Tricks", status: "editing" },
+  { id: "5", title: "CSS Grid vs Flexbox", status: "thumbnail" },
+  { id: "6", title: "JavaScript ES2024 Features", status: "published" },
+  { id: "7", title: "Web Performance Optimization", status: "ideation" },
 ];
 
 export function KanbanBoard() {
@@ -156,18 +159,20 @@ export function KanbanBoard() {
       onDragOver={handleDragOver}
       onDragEnd={handleDragEnd}
     >
-      <div className="flex gap-6 p-6 overflow-x-auto min-h-screen bg-gradient-to-br from-background to-muted/20">
-        {COLUMNS.map((column) => (
-          <KanbanColumn
-            key={column.id}
-            id={column.id}
-            title={column.title}
-            items={getColumnItems(column.id)}
-            onAddCard={handleAddCard}
-            onUpdateCard={handleUpdateCard}
-            onDeleteCard={handleDeleteCard}
-          />
-        ))}
+      <div className="flex justify-center">
+        <div className="flex gap-6 p-6 overflow-x-auto">
+          {COLUMNS.map((column) => (
+            <KanbanColumn
+              key={column.id}
+              id={column.id}
+              title={column.title}
+              items={getColumnItems(column.id)}
+              onAddCard={handleAddCard}
+              onUpdateCard={handleUpdateCard}
+              onDeleteCard={handleDeleteCard}
+            />
+          ))}
+        </div>
       </div>
 
       <DragOverlay>

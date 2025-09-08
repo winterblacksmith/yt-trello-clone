@@ -5,7 +5,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/30">
       <header className="border-b bg-card/50 backdrop-blur-sm sticky top-0 z-50">
-        <div className="container mx-auto px-6 py-4">
+        <div className="px-6 py-4">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
               <div className="h-8 w-8 bg-gradient-to-br from-youtube-red to-youtube-red-hover rounded-lg flex items-center justify-center">
@@ -29,7 +29,9 @@ const Index = () => {
         </div>
       </header>
 
-      <KanbanBoard />
+      <div className="min-h-screen bg-gradient-to-br from-background to-muted/20">
+        <KanbanBoard />
+      </div>
     </div>
   );
 };
