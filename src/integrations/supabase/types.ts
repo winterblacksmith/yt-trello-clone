@@ -14,7 +14,137 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      media_files: {
+        Row: {
+          created_at: string
+          file_name: string
+          file_size: number | null
+          file_type: string
+          id: string
+          s3_bucket: string
+          s3_key: string
+          updated_at: string
+          upload_status: string
+          user_id: string
+          video_id: string | null
+        }
+        Insert: {
+          created_at?: string
+          file_name: string
+          file_size?: number | null
+          file_type: string
+          id?: string
+          s3_bucket: string
+          s3_key: string
+          updated_at?: string
+          upload_status?: string
+          user_id: string
+          video_id?: string | null
+        }
+        Update: {
+          created_at?: string
+          file_name?: string
+          file_size?: number | null
+          file_type?: string
+          id?: string
+          s3_bucket?: string
+          s3_key?: string
+          updated_at?: string
+          upload_status?: string
+          user_id?: string
+          video_id?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "media_files_video_id_fkey"
+            columns: ["video_id"]
+            isOneToOne: false
+            referencedRelation: "youtube_videos"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          avatar_url: string | null
+          created_at: string
+          display_name: string | null
+          id: string
+          updated_at: string
+          user_id: string
+          youtube_channel_id: string | null
+        }
+        Insert: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id: string
+          youtube_channel_id?: string | null
+        }
+        Update: {
+          avatar_url?: string | null
+          created_at?: string
+          display_name?: string | null
+          id?: string
+          updated_at?: string
+          user_id?: string
+          youtube_channel_id?: string | null
+        }
+        Relationships: []
+      }
+      youtube_videos: {
+        Row: {
+          comment_count: number | null
+          created_at: string
+          description: string | null
+          id: string
+          like_count: number | null
+          metadata: Json | null
+          published_at: string | null
+          status: string
+          thumbnail_url: string | null
+          title: string
+          updated_at: string
+          user_id: string
+          view_count: number | null
+          youtube_video_id: string | null
+        }
+        Insert: {
+          comment_count?: number | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          like_count?: number | null
+          metadata?: Json | null
+          published_at?: string | null
+          status?: string
+          thumbnail_url?: string | null
+          title: string
+          updated_at?: string
+          user_id: string
+          view_count?: number | null
+          youtube_video_id?: string | null
+        }
+        Update: {
+          comment_count?: number | null
+          created_at?: string
+          description?: string | null
+          id?: string
+          like_count?: number | null
+          metadata?: Json | null
+          published_at?: string | null
+          status?: string
+          thumbnail_url?: string | null
+          title?: string
+          updated_at?: string
+          user_id?: string
+          view_count?: number | null
+          youtube_video_id?: string | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
